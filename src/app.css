@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Make `dark:` respond to a `.dark` class on <html> instead of the OS setting.
+   Delete this line if you'd rather follow prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Tokens — reference these in markup: bg-background, text-primary…   */
+/* ------------------------------------------------------------------ */
+@theme inline {
+  /* fixed brand palette (identical in both themes) */
+  --color-brand-blue: #3368a0;
+  --color-brand-cyan: #66a3bf;
+  --color-brand-mist: #c8dfdb;
+  --color-brand-sand: #f2efe7;
+
+  /* role colors — resolve to the vars defined below */
+  --color-background:  var(--bg);
+  --color-surface:     var(--surface);
+  --color-foreground:  var(--fg);
+  --color-muted:       var(--muted);
+  --color-border:      var(--border);
+  --color-ring:        var(--ring);
+
+  --color-primary:              var(--primary);
+  --color-primary-hover:        var(--primary-hover);
+  --color-primary-foreground:   var(--primary-fg);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-fg);
+}
+
+/* ---------------- light (default) ---------------- */
+:root {
+  --bg:            #f2efe7;   /* sand  */
+  --surface:       #ffffff;
+  --fg:            #1b2a3a;
+  --muted:         #5c7183;
+  --border:        #d3e1de;
+  --ring:          #66a3bf;
+
+  --primary:       #3368a0;   /* blue  */
+  --primary-hover: #2b5888;
+  --primary-fg:    #ffffff;
+  --secondary:     #66a3bf;   /* cyan  */
+  --secondary-fg:  #0f2530;
+}
+
+/* ---------------- dark ---------------- */
+.dark {
+  --bg:            #0f1b28;
+  --surface:       #17293b;
+  --fg:            #eef4f2;
+  --muted:         #9cb3bf;
+  --border:        #294056;
+  --ring:          #66a3bf;
+
+  --primary:       #66a3bf;   /* lighter tone reads better on dark */
+  --primary-hover: #7fb6ce;
+  --primary-fg:    #0b1620;
+  --secondary:     #3368a0;
+  --secondary-fg:  #eef4f2;
+}
+
+/* ---------------- base ---------------- */
+@layer base {
+  html {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+  }
+}

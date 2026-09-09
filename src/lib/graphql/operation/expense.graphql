@@ -1,0 +1,53 @@
+# Query
+query GetExpense($id: ID!) {
+    expense(id: $id) {
+        id
+        userId
+        categoryId
+        categoryName
+        transactionDt
+        description
+        amount
+    }
+}
+
+query ListExpenses($userId: ID!, $transactionDt: String) {
+    expenses(userId: $userId, transactionDt: $transactionDt) {
+        id
+        userId
+        categoryId
+        categoryName
+        transactionDt
+        description
+        amount
+    }
+}
+
+# Mutation
+mutation CreateExpense($input: CreateExpenseInput!) {
+    createExpense(input: $input) {
+        id
+        userId
+        categoryId
+        categoryName
+        transactionDt
+        description
+        amount
+    }
+}
+
+mutation UpdateExpense($id: ID!, $patch: UpdateExpenseInput!) {
+    updateExpense(id: $id, patch: $patch) {
+        id
+        userId
+        categoryId
+        categoryName
+        transactionDt
+        description
+        amount
+    }
+}
+
+mutation DeleteExpense($id: ID!) {
+    deleteExpense(id: $id)
+}

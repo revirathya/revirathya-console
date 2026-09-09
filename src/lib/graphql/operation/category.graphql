@@ -1,0 +1,33 @@
+# Query
+query GetCategory($id: ID!) {
+    category(id: $id) {
+        id
+        categoryName
+    }
+}
+
+query ListCategories {
+    categories {
+        id
+        categoryName
+    }
+}
+
+# Mutation
+mutation CreateCategory($input: CreateCategoryInput!) {
+    createCategory(input: $input) {
+        id
+        categoryName
+    }
+}
+
+mutation UpdateCategory($id: ID!, $patch: UpdateCategoryInput!) {
+    updateCategory(id: $id, patch: $patch) {
+        id
+        categoryName
+    }
+}
+
+mutation DeleteCategory($id: ID!) {
+    deleteCategory(id: $id)
+}

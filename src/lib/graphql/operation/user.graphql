@@ -1,0 +1,10 @@
+# Query
+query GetUser($id: ID!) {
+    user(id: $id) {
+        id
+        firstName
+        lastName
+        email
+        telegramChatId
+    }
+}
